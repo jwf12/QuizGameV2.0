@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Home QuizGame</h1>
+<div class="container">
+    <ul>
+        {% for categoria in categorias %}
+            <li>{{categoria}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

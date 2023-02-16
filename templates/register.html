@@ -6,25 +6,29 @@
         <div class="row justify-content-center">
             <div class="col">
                 <h1>Bienvenidos a QuizGame</h1>
-                <form action="POST">
-
+                <form action="" method = 'POST'>
+                    {% csrf_token %}
                     <div class="form-group">
                         <label for="">Usuario:</label>
-                        <input type="text" class='form-control' name='username' id='username' placeholder ='Aqui tu usuario'>
+                        {{form.username}}
+                        {% comment %} <input type="text" class='form-control' name='username' id='username' placeholder ='Aqui tu usuario'> {% endcomment %}
+
                     </div>
                     <br>
                     <div class="form-group">
                         <label for="">Contraseña:</label>
-                        <input type="password" class='form-control' name='password' id='password' placeholder ='Aqui tu contraseña'>
+                        {{form.password1}}
+                        {% comment %} <input type="password" class='form-control' name='password' id='password' placeholder ='Aqui tu contraseña'> {% endcomment %}
                     </div>
                     <br>
                     <div class="form-group">
                         <label for="">Repetir contraseña:</label>
-                        <input type="password" class='form-control' name='re-password' id='re-password' placeholder ='Aqui tu contraseña'>
+                        {{form.password2}}
+                        {% comment %} <input type="password" class='form-control' name='re-password' id='re-password' placeholder ='Aqui tu contraseña'> {% endcomment %}
                     </div>
                     <br>                    
                     <button class="btn btn-success" type='submit'>Acceder</button>
-                    <br>
+                    <br>               
                     
                 </form>
             </div>
