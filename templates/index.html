@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Home QuizGame</h1>
-<div class="container">
-    <ul>
-        {% for categoria in categorias %}
-            <li>{{categoria}}</li>
-        {% endfor %}
-    </ul>
+
+<div class="container text-center mt-4">
+    <h1>Home QuizGame</h1>
+    <div class="row text-center m-4">
+        <div class="col">
+            <ul>
+                {% for categoria in categorias %}
+                <li>{{categoria}}</li>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+    </div>
+
+
+
 </div>
 {% endblock content %}
