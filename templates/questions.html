@@ -7,14 +7,14 @@
     <div class="row text-center m-4">
         <div class="col">
             <ul>                
-                {% comment %} {% for pregunta, respuestas in preguntas_respuestas.items %}
+                {% for pregunta, respuestas in preguntas_respuestas.items %}
                 <h3>{{ pregunta }}</h3>
                 <ul>
                     {% for respuesta in respuestas %}
                      <li>{{ respuesta }}</li>
                     {% endfor %}
                 </ul>
-                {% endfor %} {% endcomment %}
+                {% endfor %}
             </ul>
 
         </div>
