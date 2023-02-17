@@ -6,10 +6,8 @@
     <h1>Home QuizGame</h1>
     <div class="row text-center m-4">
         <div class="col">
-            <ul>
-
-{% comment %}                 
-                {% for pregunta, respuestas in preguntas_respuestas.items %}
+            <ul>                
+                {% comment %} {% for pregunta, respuestas in preguntas_respuestas.items %}
                 <h3>{{ pregunta }}</h3>
                 <ul>
                     {% for respuesta in respuestas %}
@@ -17,14 +15,6 @@
                     {% endfor %}
                 </ul>
                 {% endfor %} {% endcomment %}
-
-
-
-                {% for categoria in categorias %}
-                <a href="{% url  'quiz:question_list' categoria.id %}">{{categoria}}</a>
-                {% endfor %}
-
-
             </ul>
 
         </div>
