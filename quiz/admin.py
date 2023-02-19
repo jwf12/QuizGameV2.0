@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Question, Quiz
+from .models import Question, Quiz, Answer
 
 
 class QuizAdmin(admin.ModelAdmin):
@@ -10,6 +10,7 @@ class QuizAdmin(admin.ModelAdmin):
         'update_at',
     )
 
+
 class QuestionAdmin(admin.ModelAdmin):
     list_display = (
         'quiz',
@@ -17,6 +18,15 @@ class QuestionAdmin(admin.ModelAdmin):
     )
 
 
+class AnswerAdmin(admin.ModelAdmin):
+    list_display = (
+        'question',
+        'text',
+        'is_correct',
+    )
+
+
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Quiz, QuizAdmin)
+admin.site.register(Answer, AnswerAdmin)
 

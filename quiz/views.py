@@ -20,6 +20,41 @@ class Home(LoginRequiredMixin, generic.ListView):
     context_object_name = 'categorias'
     login_url = 'quiz:login'
 
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     preguntas_respuestas = {}
+
+    #     for quiz in context['object_list']:
+    #         preguntas = quiz.question_set.all()
+    #         for pregunta in preguntas:
+    #             respuestas = pregunta.answer_set.all()
+    #             preguntas_respuestas[pregunta] = respuestas
+
+    #     context['preguntas_respuestas'] = preguntas_respuestas
+    #     return context
+
+
+class QuestionView(LoginRequiredMixin, generic.ListView):
+    model = Question
+    template_name = 'questions.html'
+    context_object_name = 'preguntas'
+
+    def get_queryset(self):
+        quiz_id = self.kwargs.get('quiz_id')
+        quiz = get_object_or_404(Quiz, pk = quiz_id)
+        return Question.objects.filter(quiz = quiz)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        preguntas_respuestas = {}
+
+        for pregunta in context['preguntas']:
+            respuestas = pregunta.answer_set.all()
+            preguntas_respuestas[pregunta] = respuestas
+            
+        context['preguntas_respuestas'] = preguntas_respuestas
+        return context
+
 
 class SingUpView(CreateView):
     form_class = UserCreationForm
@@ -30,5 +65,3 @@ class SingUpView(CreateView):
         response = super().form_valid(form)
         messages.success(self.request, '¡Tu cuenta ha sido creada! Por favor inicia sesión.')
         return response
-
-
