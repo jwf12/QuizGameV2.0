@@ -56,10 +56,6 @@ class QuestionView(LoginRequiredMixin, generic.ListView):
         return context
 
 
-
-
-
-
 class SingUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('quiz:login')
