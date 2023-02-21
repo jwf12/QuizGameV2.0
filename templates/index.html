@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container text-center mt-4">
+<div class="container text-center mt-4 container mt-4 p-5 border border-success rounded bg-success bg-opacity-25">
     <h1>Home QuizGame</h1>
     <div class="row text-center m-4">
         <div class="col">
@@ -21,7 +21,7 @@
 
 
                 {% for categoria in categorias %}
-                <a href="{% url  'quiz:question_list' categoria.id %}">{{categoria}}</a>
+                <a href="{% url  'quiz:question_list' categoria.id %}"><li class='' style=list-style:none>{{categoria}}</li></a>
                 {% endfor %}
 
 

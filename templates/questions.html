@@ -1,27 +1,32 @@
 {% extends 'base.html' %}
-
 {% block content %}
+<div class="container">
+    
+    <h1 class="text-center mt-4">{{ quiz.name }}</h1>
 
-<div class="container text-center mt-4">
-    <h1>Home QuizGame</h1>
-    <div class="row text-center m-4">
-        <div class="col">
-            <ul>                
-                {% for pregunta, respuestas in preguntas_respuestas.items %}
-                <h3>{{ pregunta }}</h3>
-                <ul>
-                    {% for respuesta in respuestas %}
-                     <li>{{ respuesta }}</li>
-                    {% endfor %}
-                </ul>
+    <div class="container mt-4 p-5 border border-success rounded bg-success bg-opacity-25 text-center">
+
+        {% if question %}
+            <h2>{{ question.text }}</h2>
+            <form method="post">
+                {% csrf_token %}
+                {% for answer in answers %}
+                    <label class="mt-4">
+                        <input type="radio" name="answer" value="{{ answer.id }}">
+                        {{ answer.text }}
+                    </label>
+                <br>
                 {% endfor %}
-            </ul>
-
-        </div>
-
+                <button class="btn btn-success mt-4" type="submit">Siguiente</button>
+            </form>
+        {% else %}
+            <h1>Quiz Result</h1>
+            <p>Obtuviste {{ correct_answers }} de {{ total_questions }} Preguntas correctas.</p>
+            <p>Gracias por jugar con nosotros...!</p>
+        {% endif %}
+    
+    
     </div>
 
-
-
 </div>
-{% endblock content %}
+{% endblock %}

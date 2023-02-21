@@ -38,4 +38,4 @@ class UserProgress(models.Model):
     complated_at = models.DateField(auto_now=True)
     
     def __str__(self):
-        return self.user
+        return self.score
