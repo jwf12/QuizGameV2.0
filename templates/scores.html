@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container text-center mt-5 p-5 border border-success rounded bg-success bg-opacity-25">
+    <div class="header">
+
+        <h2 class='m-3'>Puntuacion:</h2>
+        <form action="{% url 'quiz:score' %}" method="get" class='m-3'>
+            <input name="UserSearch" type="text" placeholder="Busca usuario/categoria">
+            <button class=' btn btn-success btn-sm rounded mb-1' type='submit'>Buscar</button>
+        </form>
+    </div>
+    {% for puntuacion in puntuaciones %}
+    
+    <li class='mt-2' style=list-style:none><strong>{{puntuacion.user}}</strong>: {{puntuacion.score}} puntos - <strong>Categoria</strong>: {{puntuacion.quiz}}</li>
+    
+    {% endfor %}
+    
+</div>
+{% endblock content %}

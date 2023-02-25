@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container text-center mt-5 p-5 border border-success rounded bg-success bg-opacity-25">
+        
+        <h1>Debes terminar con el quiz anterior.</h1>
+        
+        <a href="{% url 'quiz:home' %}" class= 'btn btn-warning mt-5'>Volver</a>
+    </div>
+
+{% endblock content %}
